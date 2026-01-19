@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+##################
+# Application config real (não versionar)
+application.properties
+.env
+
+# Example config (versionar)
+!application.properties.example
