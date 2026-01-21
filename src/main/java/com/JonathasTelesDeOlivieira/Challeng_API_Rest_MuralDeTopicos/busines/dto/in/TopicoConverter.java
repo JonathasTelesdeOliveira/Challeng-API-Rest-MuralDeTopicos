@@ -1,6 +1,7 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.in;
 
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosDetalhamentoTopico;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosListagemTopico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.entity.Topico;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +16,15 @@ public class TopicoConverter {
                 .build();
     }
 
-    public DadosDetalhamentoTopico paradto(Topico topico) {
-        return new DadosDetalhamentoTopico(
+    public Topico paraBuscaTopicoEntity(DadosBuscarTopico dto) {
+        return Topico.builder()
+                .curso(dto.curso())
+                .dataCriacao(dto.dataCriacao())
+                .build();
+    }
+
+    public DadosListagemTopico paradtoListagem(Topico topico) {
+        return new DadosListagemTopico(
                 topico.getId(),
                 topico.getTitulo(),
                 topico.getMensagem(),
@@ -25,13 +33,6 @@ public class TopicoConverter {
                 topico.getDataCriacao(),
                 topico.getStatus()
         );
-    }
-
-    public Topico paraBuscaTopicoEntity(DadosBuscarTopico dto) {
-        return Topico.builder()
-                .curso(dto.curso())
-                .dataCriacao(dto.dataCriacao())
-                .build();
     }
 
 

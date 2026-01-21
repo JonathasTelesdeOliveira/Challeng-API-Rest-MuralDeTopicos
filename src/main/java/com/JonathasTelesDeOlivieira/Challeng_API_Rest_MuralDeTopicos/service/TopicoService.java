@@ -9,6 +9,7 @@ import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.ent
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.exeptions.TopicoDuplicadoException;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.repository.TopicosRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -54,18 +55,21 @@ public class TopicoService {
                 )).toList();
     }
 
-    public List<DadosDetalhamentoTopico> listarCursoPorAno(String curso, int ano) {
+    public Page<DadosListagemTopico> listarCursoPorAno(String curso, int ano, Pageable pageable) {
 
-        LocalDateTime inicio = LocalDateTime.of(ano, 1, 1, 0, 0);
-        LocalDateTime fim = LocalDateTime.of(ano, 12, 31, 23, 59, 59);
-
-        List<Topico> topicos =
-                repository.findByCursoAndDataCriacaoBetween(curso, inicio, fim);
+        Page<Topico> topicos =
+                repository.findByCursoAndAno(curso, ano, pageable);
 
         return topicos
-                .stream()
-                .map(converter::paradto)
-                .toList();
+                .map(converter::paradtoListagem);
+    }
+
+    public DadosListagemTopico ListarTopicoId(Long id) {
+        Topico topico = repository.findById(id)
+                .orElseThrow(() ->
+                          new TopicoDuplicadoException("Erro ao Buscar por Id: " + id)
+                );
+        return converter.paradtoListagem(topico);
     }
 
 

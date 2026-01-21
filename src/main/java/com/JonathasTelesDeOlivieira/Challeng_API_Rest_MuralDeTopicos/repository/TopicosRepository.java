@@ -10,15 +10,14 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TopicosRepository extends JpaRepository<Topico, Long> {
+    Optional<Topico> findById(Long id);
+
 
     Boolean existsByTituloAndMensagem(String titulo, String mensagem);
-
-    List<Topico> findByCursoAndDataCriacaoBetween(String curso,
-                                                  LocalDateTime inicio,
-                                                  LocalDateTime fim);
 
     @Query("""
                 select t from Topico t
@@ -30,4 +29,6 @@ public interface TopicosRepository extends JpaRepository<Topico, Long> {
             @Param("ano") int ano,
             Pageable pageable
     );
+
+
 }
