@@ -5,7 +5,7 @@ import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.ent
 
 import java.time.LocalDateTime;
 
-public record DadosDetalhamentoTopico(
+public record DadosListagemTopico(
         Long id,
         String titulo,
         String mensagem,
@@ -14,4 +14,15 @@ public record DadosDetalhamentoTopico(
         LocalDateTime dataCriacao,
         StatusTopico status
 ) {
+    public DadosListagemTopico(Topico topico) {
+        this(
+                topico.getId(),
+                topico.getTitulo(),
+                topico.getMensagem(),
+                topico.getAutor(),
+                topico.getCurso(),
+                topico.getDataCriacao(),
+                topico.getStatus()
+        );
+    }
 }

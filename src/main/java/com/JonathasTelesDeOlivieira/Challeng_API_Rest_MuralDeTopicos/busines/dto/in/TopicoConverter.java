@@ -26,6 +26,17 @@ public class TopicoConverter {
                 topico.getStatus()
         );
     }
+
+    public Topico paraBuscaTopicoEntity(DadosBuscarTopico dto) {
+        return Topico.builder()
+                .curso(dto.curso())
+                .dataCriacao(dto.dataCriacao())
+                .build();
+    }
+
+
+
+
 }
 
 

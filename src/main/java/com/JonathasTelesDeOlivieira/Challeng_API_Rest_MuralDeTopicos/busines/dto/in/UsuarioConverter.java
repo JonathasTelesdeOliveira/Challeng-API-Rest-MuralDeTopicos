@@ -1,6 +1,5 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.in;
 
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.entity.Usuario;
 import org.springframework.stereotype.Component;
 
 @Component
