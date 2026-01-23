@@ -1,9 +1,9 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.controller;
 
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.in.DadosCadastroTopico;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.in.TopicoConverter;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosDetalhamentoTopico;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosListagemTopico;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosCadastroTopico;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.converter.TopicoConverter;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosUpdateTopico;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosTopico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.entity.Topico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.service.TopicoService;
 import jakarta.validation.Valid;
@@ -31,8 +31,8 @@ public class TopicoController {
     }
 
     @PostMapping
-    public ResponseEntity<DadosListagemTopico> cadastrar(@RequestBody @Valid DadosCadastroTopico dto,
-                                                             UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<DadosTopico> cadastrar(@RequestBody @Valid DadosCadastroTopico dto,
+                                                 UriComponentsBuilder uriBuilder) {
         Topico topico = topicoService.cadastrarTopico(dto);
 
         URI uri = uriBuilder
@@ -40,11 +40,11 @@ public class TopicoController {
                 .buildAndExpand(topico.getId())
                 .toUri();
         return ResponseEntity.created(uri).body(
-                converter.paradtoListagem(topico));
+                converter.paraDadoTopico(topico));
     }
 
     @GetMapping("/cursoAno")
-    public ResponseEntity<Page<DadosListagemTopico>> buscarTopico(
+    public ResponseEntity<Page<DadosTopico>> buscarTopico(
             @RequestParam String curso,
             @RequestParam int ano,
             Pageable pageable) {
@@ -52,7 +52,7 @@ public class TopicoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<DadosListagemTopico>> ListarTopicos(
+    public ResponseEntity<List<DadosTopico>> ListarTopicos(
             @PageableDefault(
                     size = 10,
                     sort = "dataCriacao",
@@ -63,8 +63,13 @@ public class TopicoController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<DadosListagemTopico> listarTopicosId(@PathVariable Long id) {
+    public ResponseEntity<DadosTopico> listarTopicosId(@PathVariable Long id) {
         return ResponseEntity.ok(topicoService.ListarTopicoId(id));
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<DadosUpdateTopico> updateTopico(@PathVariable Long id,
+                                                            @RequestBody @Valid DadosUpdateTopico dto) {
+        return ResponseEntity.ok(topicoService.updateTopico(id, dto));
+    }
 }

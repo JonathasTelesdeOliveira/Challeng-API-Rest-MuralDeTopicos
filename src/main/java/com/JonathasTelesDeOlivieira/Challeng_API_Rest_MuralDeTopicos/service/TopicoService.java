@@ -1,9 +1,9 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.service;
 
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.in.DadosCadastroTopico;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.in.TopicoConverter;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosDetalhamentoTopico;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosListagemTopico;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosCadastroTopico;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.converter.TopicoConverter;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosTopico;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosUpdateTopico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.entity.StatusTopico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.entity.Topico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.exeptions.TopicoDuplicadoException;
@@ -41,10 +41,10 @@ public class TopicoService {
         return repository.save(topico);
     }
 
-    public List<DadosListagemTopico> listarTopicos(Pageable pageable) {
+    public List<DadosTopico> listarTopicos(Pageable pageable) {
         return repository
                 .findAll(pageable)
-                .map(t -> new DadosListagemTopico(
+                .map(t -> new DadosTopico(
                         t.getId(),
                         t.getTitulo(),
                         t.getMensagem(),
@@ -55,24 +55,34 @@ public class TopicoService {
                 )).toList();
     }
 
-    public Page<DadosListagemTopico> listarCursoPorAno(String curso, int ano, Pageable pageable) {
+    public Page<DadosTopico> listarCursoPorAno(String curso, int ano, Pageable pageable) {
 
         Page<Topico> topicos =
                 repository.findByCursoAndAno(curso, ano, pageable);
 
         return topicos
-                .map(converter::paradtoListagem);
+                .map(converter::paraDadoTopico);
     }
 
-    public DadosListagemTopico ListarTopicoId(Long id) {
+    public DadosTopico ListarTopicoId(Long id) {
         Topico topico = repository.findById(id)
                 .orElseThrow(() ->
                           new TopicoDuplicadoException("Erro ao Buscar por Id: " + id)
                 );
-        return converter.paradtoListagem(topico);
+        return converter.paraDadoTopico(topico);
     }
 
+    @Transactional
+    public DadosUpdateTopico updateTopico(Long id, DadosUpdateTopico dto) {
+            Topico entity = repository.findById(id)
+            .orElseThrow(() ->
+                    new TopicoDuplicadoException("Erro ao Buscar por Id: " + id)
+            );
 
+            Topico topicoEntity = converter.paraUpdateTopico(entity, dto);
+           return converter.DadoDTO_builder(repository.save(topicoEntity));
+
+    }
 }
 
 
