@@ -72,4 +72,11 @@ public class TopicoController {
                                                             @RequestBody @Valid DadosUpdateTopico dto) {
         return ResponseEntity.ok(topicoService.updateTopico(id, dto));
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> excluirTopico(@PathVariable Long id) {
+        topicoService.excluirTopicoo(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
