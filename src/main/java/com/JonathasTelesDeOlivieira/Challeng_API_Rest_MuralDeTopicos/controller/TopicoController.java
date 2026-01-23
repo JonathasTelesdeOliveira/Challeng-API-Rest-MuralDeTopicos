@@ -4,7 +4,7 @@ import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.converter.TopicoConverter;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosUpdateTopico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.DadosTopico;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.entity.Topico;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.domain.Topico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.service.TopicoService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;

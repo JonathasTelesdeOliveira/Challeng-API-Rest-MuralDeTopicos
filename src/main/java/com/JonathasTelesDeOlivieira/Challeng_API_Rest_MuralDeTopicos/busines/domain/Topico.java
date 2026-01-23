@@ -1,4 +1,4 @@
-package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.entity;
+package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
