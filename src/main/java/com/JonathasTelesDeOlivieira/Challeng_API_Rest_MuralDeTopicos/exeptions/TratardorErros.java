@@ -1,4 +1,4 @@
-package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.domain;
+package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.exeptions;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
