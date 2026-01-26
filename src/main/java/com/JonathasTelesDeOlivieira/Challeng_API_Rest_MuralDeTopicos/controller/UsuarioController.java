@@ -1,5 +1,6 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.controller;
 
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.infra.security.DadosTokenJWT;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.LoginUsuario;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.service.UsuarioService;
 import jakarta.validation.Valid;
@@ -20,7 +21,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity login(@RequestBody @Valid  LoginUsuario loginUsuario) {
+    public ResponseEntity<DadosTokenJWT> login(@RequestBody @Valid  LoginUsuario loginUsuario) {
         return ResponseEntity.ok(usuarioService.login(loginUsuario));
     }
 }

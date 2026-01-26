@@ -1,4 +1,4 @@
-package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.exeptions;
+package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.infra.exeptions;
 
 public class IdNaoEncontradoException extends RuntimeException {
   public IdNaoEncontradoException(String message) {
