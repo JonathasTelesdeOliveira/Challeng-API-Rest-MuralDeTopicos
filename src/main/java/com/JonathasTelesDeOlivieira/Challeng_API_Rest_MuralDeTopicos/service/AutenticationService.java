@@ -1,6 +1,6 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.service;
 
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.repository.UsuarioRepository;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.domain.repository.UsuarioRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

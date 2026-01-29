@@ -1,10 +1,10 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.service;
 
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.domain.Usuario;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.LoginUsuario;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.infra.security.DadosTokenJWT;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.infra.security.TokenService;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.repository.UsuarioRepository;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.domain.model.Usuario;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.application.dto.request.LoginUsuario;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.application.dto.response.DadosTokenJWT;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.infraestruture.security.TokenService;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.domain.repository.UsuarioRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
