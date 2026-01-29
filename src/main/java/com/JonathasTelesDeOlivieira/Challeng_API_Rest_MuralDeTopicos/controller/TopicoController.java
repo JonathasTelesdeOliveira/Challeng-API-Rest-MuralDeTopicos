@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -62,7 +63,7 @@ public class TopicoController {
         return ResponseEntity.ok(topicoService.listarTopicos(pageable));
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<DadosTopico> listarTopicosId(@PathVariable Long id) {
         return ResponseEntity.ok(topicoService.ListarTopicoId(id));
     }
@@ -78,5 +79,4 @@ public class TopicoController {
         topicoService.excluirTopicoo(id);
         return ResponseEntity.noContent().build();
     }
-
 }

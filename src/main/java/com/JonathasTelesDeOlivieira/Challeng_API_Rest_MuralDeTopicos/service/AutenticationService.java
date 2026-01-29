@@ -1,7 +1,6 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.service;
 
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.repository.UsuarioRepository;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,6 +12,7 @@ public class AutenticationService implements UserDetailsService {
     private final UsuarioRepository repository;
 
     public AutenticationService(UsuarioRepository repository) {
+
         this.repository = repository;
     }
 

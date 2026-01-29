@@ -1,7 +1,8 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.controller;
 
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.infra.security.DadosTokenJWT;
+
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.LoginUsuario;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.infra.security.DadosTokenJWT;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -12,16 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/login")
-public class UsuarioController {
+public class AutenticacaoController {
 
     private UsuarioService usuarioService;
 
-    public UsuarioController(UsuarioService usuarioService) {
+    public AutenticacaoController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
     @PostMapping
-    public ResponseEntity<DadosTokenJWT> login(@RequestBody @Valid  LoginUsuario loginUsuario) {
+    public ResponseEntity<DadosTokenJWT> login(@RequestBody @Valid LoginUsuario loginUsuario) {
         return ResponseEntity.ok(usuarioService.login(loginUsuario));
     }
 }

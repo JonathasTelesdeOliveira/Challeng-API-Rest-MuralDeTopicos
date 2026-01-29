@@ -29,4 +29,6 @@ public interface TopicosRepository extends JpaRepository<Topico, Long> {
     );
 
     void deleteById(Long id);
+
+    Topico getReferenceById(Long id);
 }
