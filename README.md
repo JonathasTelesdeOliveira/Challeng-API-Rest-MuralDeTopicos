@@ -206,4 +206,4 @@ Este projeto é apenas para fins educacionais.
 
 _______________________________________________________________________________________________
 
-![Diagram do projeto](src\main\resources\static\img\img.png) 
+![Diagram do projeto](src/main/resources/static/img/img.png) 
