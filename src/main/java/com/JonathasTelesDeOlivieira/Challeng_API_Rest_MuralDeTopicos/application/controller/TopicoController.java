@@ -1,11 +1,12 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.application.controller;
 
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.application.dto.request.DadosCadastroTopico;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.infraestruture.converter.TopicoConverter;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.application.dto.request.DadosUpdateTopico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.application.dto.response.DadosTopico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.domain.model.Topico;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.infraestruture.converter.TopicoConverter;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.service.TopicoService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@SecurityRequirement(name = "bearer-key")
 @RequestMapping("/topicos")
 public class TopicoController {
 

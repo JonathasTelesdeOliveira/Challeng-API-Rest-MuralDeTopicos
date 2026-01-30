@@ -1,9 +1,8 @@
 package com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.infraestruture.converter;
 
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.application.dto.request.DadosCadastroTopico;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.application.dto.response.DadosTopico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.application.dto.request.DadosUpdateTopico;
-import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.busines.dto.out.*;
+import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.application.dto.response.DadosTopico;
 import com.JonathasTelesDeOlivieira.Challeng_API_Rest_MuralDeTopicos.domain.model.Topico;
 import org.springframework.stereotype.Component;
 

@@ -195,6 +195,7 @@ ________________________________________________________________________________
 Jonathas Teles
 Desenvolvedor Java | Spring Boot
 Estudante de Análise e Desenvolvimento de Sistemas
+Projeto elaborado no desafio Oracle One & Alura
 
 _______________________________________________________________________________________________
 
@@ -202,15 +203,5 @@ ________________________________________________________________________________
 📄 Licença
 
 Este projeto é apenas para fins educacionais.
-
-
----
-
-### 📈 Valor estratégico desse README
-Esse README:
-- Passa **maturidade técnica**
-- Demonstra **consciência arquitetural**
-- Facilita entendimento de recrutadores
-- Alinha seu projeto a padrões reais de mercado
 
 _______________________________________________________________________________________________
