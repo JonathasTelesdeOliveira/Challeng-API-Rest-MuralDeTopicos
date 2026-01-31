@@ -5,6 +5,10 @@ API REST desenvolvida em **Java com Spring Boot**, com foco em **boas práticas 
 O projeto foi estruturado seguindo padrões utilizados no mercado, com separação clara de responsabilidades, facilitando manutenção, testes e evolução futura.
 
 ---
+![Badge do projeto](docs/img/Badge-Spring.png)
+
+![Diagram do projeto](docs/img/img.png)
+
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -205,5 +209,3 @@ ________________________________________________________________________________
 Este projeto é apenas para fins educacionais.
 
 _______________________________________________________________________________________________
-
-![Diagram do projeto](src/main/resources/static/img/img.png) 
